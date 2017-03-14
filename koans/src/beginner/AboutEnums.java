@@ -24,7 +24,7 @@ public class AboutEnums {
     @Koan
     public void basicEnumsAccess() {
         Colors[] colorArray = Colors.values();
-        assertEquals(colorArray[2], __);
+        assertEquals(colorArray[2], Colors.Green);
     }
 
     enum SkatSuits {
@@ -42,7 +42,7 @@ public class AboutEnums {
         // value is private but we still can access it. Why?
         // Try moving the enum outside the AboutEnum class... What do you expect?
         // What happens?
-        assertEquals(SkatSuits.Clubs.value > SkatSuits.Spades.value, __);
+        assertEquals(SkatSuits.Clubs.value < SkatSuits.Spades.value, false);
     }
 
     enum OpticalMedia {
@@ -61,7 +61,7 @@ public class AboutEnums {
 
     @Koan
     public void enumsWithMethods() {
-        assertEquals(OpticalMedia.CD.getCoolnessFactor(), __);
-        assertEquals(OpticalMedia.BluRay.getCoolnessFactor(), __);
+        assertEquals(OpticalMedia.CD.getCoolnessFactor(), -3500);
+        assertEquals(OpticalMedia.BluRay.getCoolnessFactor(), 490000);
     }
 }
