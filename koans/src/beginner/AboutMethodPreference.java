@@ -27,24 +27,24 @@ public class AboutMethodPreference {
 
     @Koan
     public void methodPreferenceInt() {
-        assertEquals(new A().doStuff(1), __);
+        assertEquals(new A().doStuff(1), "int");
     }
 
     @Koan
     public void methodPreferenceInteger() {
-        assertEquals(new A().doStuff(Integer.valueOf(1)), __);
+        assertEquals(new A().doStuff(Integer.valueOf(1)), "Integer");
     }
 
     @Koan
     public void methodPreferenceLong() {
         long l = 1;
-        assertEquals(new A().doStuff(l), __);
+        assertEquals(new A().doStuff(l), "Object");
     }
 
     @Koan
     public void methodPreferenceBoxedLong() {
         Long l = Long.valueOf(1);
-        assertEquals(new A().doStuff(l), __);
+        assertEquals(new A().doStuff(l), "Object");
     }
 
     @Koan
