@@ -13,7 +13,7 @@ public class AboutFileIO {
     @Koan
     public void fileObjectDoesntCreateFile() {
         File f = new File("foo.txt");
-        assertEquals(f.exists(), __);
+        assertEquals(f.exists(), false);
     }
 
     @Koan
