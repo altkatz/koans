@@ -7,6 +7,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 import static com.sandwich.koan.constant.KoanConstants.__;
 import static com.sandwich.util.Assert.assertEquals;
@@ -46,19 +47,22 @@ public class AboutDates {
 
     @Koan
     public void usingDateFormatToFormatDate() {
-        String formattedDate = DateFormat.getDateInstance().format(date);
+        Locale locale = new Locale("zh","CN");
+        String formattedDate = DateFormat.getDateInstance(DateFormat.DEFAULT,locale).format(date);
         assertEquals(formattedDate, "1973-3-3");
     }
 
     @Koan
     public void usingDateFormatToFormatDateShort() {
-        String formattedDate = DateFormat.getDateInstance(DateFormat.SHORT).format(date);
+        Locale locale = new Locale("zh","CN");
+        String formattedDate = DateFormat.getDateInstance(DateFormat.SHORT, locale).format(date);
         assertEquals(formattedDate, "73-3-3");
     }
 
     @Koan
     public void usingDateFormatToFormatDateFull() {
-        String formattedDate = DateFormat.getDateInstance(DateFormat.FULL).format(date);
+        Locale locale = new Locale("zh","CN");
+        String formattedDate = DateFormat.getDateInstance(DateFormat.FULL, locale).format(date);
         // There is also DateFormat.MEDIUM and DateFormat.LONG... you get the idea ;-)
         assertEquals(formattedDate, "1973年3月3日 星期六");
     }
