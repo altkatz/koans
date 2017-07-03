@@ -89,7 +89,16 @@ public class AboutFileIO {
         pw.println("2. line");
         pw.close();
 
+        FileReader fr = new FileReader(file);
         StringBuffer sb = new StringBuffer();
+        BufferedReader br = null;
+        br = new BufferedReader(fr);
+        String str = null;
+        while( (str = br.readLine()) != null) {
+          sb.append(str);
+          sb.append("\n");
+        }
+        sb.setLength(sb.length() - 1);
         // Add the loop to go through the file line by line and add the line
         // to the StringBuffer
         assertEquals(sb.toString(), "1. line\n2. line");
