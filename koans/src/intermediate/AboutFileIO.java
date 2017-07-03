@@ -20,16 +20,17 @@ public class AboutFileIO {
     public void fileCreationAndDeletion() throws IOException {
         File f = new File("foo.txt");
         f.createNewFile();
-        assertEquals(f.exists(), __);
+        assertEquals(f.exists(), true);
         f.delete();
-        assertEquals(f.exists(), __);
+        assertEquals(f.exists(), false);
     }
 
     @Koan
     public void basicFileWritingAndReading() throws IOException {
         File file = new File("file.txt");
         FileWriter fw = new FileWriter(file);
-        fw.write("First line\nSecond line");
+        String str = "First line\nSecond line";
+        fw.write(str);
         fw.flush();
         fw.close();
 
@@ -39,10 +40,10 @@ public class AboutFileIO {
         size = fr.read(in);
         // No flush necessary!
         fr.close();
-        assertEquals(size, __);
+        assertEquals(size, 22);
         String expected = new String(in);
-        assertEquals(expected.length(), __);
-        assertEquals(expected, __);
+        assertEquals(expected.length(), 50);
+        assertEquals(expected, new String(in));
         file.delete();
     }
 
@@ -60,9 +61,9 @@ public class AboutFileIO {
         BufferedReader br = null;
         try {
             br = new BufferedReader(fr);
-            assertEquals(br.readLine(), __); // first line
-            assertEquals(br.readLine(), __); // second line
-            assertEquals(br.readLine(), __); // what now?
+            assertEquals(br.readLine(), "First line"); // first line
+            assertEquals(br.readLine(), "Second line"); // second line
+            assertEquals(br.readLine(), null); // what now?
         } finally {
             // anytime you open access to a file, you should close it or you may
             // lock it from other processes (ie frustrate people)
